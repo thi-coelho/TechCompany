@@ -6,7 +6,8 @@ package techcompany;
 
 /**
  *
- * @author Admin
+ * @author: 
+ * Thiago Alves Coelho - 2024287
  */
 public class Department {
     
