@@ -10,13 +10,13 @@ package techcompany;
  * Thiago Alves Coelho - 2024287
  */
 public class Manager {
-      private String type;
+      private ManagerType type;
 
-    public Manager(String type) {
+    public Manager(ManagerType type) {
         this.type = type;
     }
 
-    public String getType() {
+    public ManagerType getType() {
         return type;
     }
-}
+}   

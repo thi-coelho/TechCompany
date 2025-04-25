@@ -10,13 +10,13 @@ package techcompany;
  * Thiago Alves Coelho - 2024287
  */
 public class Department {
-     private String name;
+     private DepartmentType name;
 
-    public Department(String name) {
+    public Department(DepartmentType name) {
         this.name = name;
     }
 
-    public String getName() {
+    public DepartmentType getName() {
         return name;
     }
 }
