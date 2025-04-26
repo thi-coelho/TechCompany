@@ -43,34 +43,49 @@ public class TechCompany {
     }
 
     public static void showMenu() {
-        while (true) {
-            System.out.println("\nPlease select an option:");
-            for (int i = 0; i < MenuOption.values().length; i++) {
-                System.out.println((i + 1) + ". " + MenuOption.values()[i]);
-            }
+    while (true) {
+        System.out.println("\nPlease select an option:");
+        for (int i = 0; i < MenuOption.values().length; i++) {
+            System.out.println((i + 1) + ". " + MenuOption.values()[i]);
+        }
 
-            int choice = scanner.nextInt();
-            scanner.nextLine(); // Clean buffer
+        int choice = -1;   
+        boolean valid = false;
 
-            switch (MenuOption.values()[choice - 1]) {
-                case SORT:
-                    sortApplicants();
-                    break;
-                case SEARCH:
-                    searchApplicant();
-                    break;
-                case ADD_RECORDS:
-                    addNewEmployee();
-                    break;
-                case GENERATE_RANDOM:
-                    generateRandomEmployee();
-                    break;
-                case EXIT:
-                    System.out.println("Thank you for using our program. Goodbye!");
-                    return;
+        while (!valid) {
+            System.out.print("Enter your choice (1-" + MenuOption.values().length + "): ");
+            try {
+                choice = Integer.parseInt(scanner.nextLine());
+
+                if (choice >= 1 && choice <= MenuOption.values().length) {
+                    valid = true; 
+                } else {
+                    System.out.println("Invalid choice. Please enter a number between 1 and " + MenuOption.values().length + ".");
+                }
+            } catch (NumberFormatException e) {
+                System.out.println("Invalid input. Please enter a valid number.");
             }
         }
+
+            switch (MenuOption.values()[choice - 1]) {
+            case SORT:
+                sortApplicants();
+                break;
+            case SEARCH:
+                searchApplicant();
+                break;
+            case ADD_RECORDS:
+                addNewEmployee();
+                break;
+            case GENERATE_RANDOM:
+                generateRandomEmployee();
+                break;
+            case EXIT:
+                System.out.println("Thank you for using our program. Goodbye!");
+                return;
+        }
     }
+}
 
     public static void sortApplicants() {
         Collections.sort(applicantNames, String.CASE_INSENSITIVE_ORDER);
