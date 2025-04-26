@@ -169,21 +169,53 @@ public class TechCompany {
         System.out.println("Please select from the following Management Staff:");
         ManagerType[] types = ManagerType.values();
         for (int i = 0; i < types.length; i++) {
-            System.out.println((i + 1) + ". " + types[i]);
+        System.out.println((i + 1) + ". " + types[i]);
         }
-        int choice = scanner.nextInt();
-        scanner.nextLine();
-        return new Manager(types[choice - 1]);
-    }
+
+        int choice = -1;
+        boolean valid = false;
+
+        while (!valid) {
+            System.out.print("Enter your choice (1-" + types.length + "): ");
+            try {
+            choice = Integer.parseInt(scanner.nextLine());
+            if (choice >= 1 && choice <= types.length) {
+                valid = true;
+            } else {
+                System.out.println("Invalid choice. Please enter a number between 1 and " + types.length + ".");
+            }
+            }   catch (NumberFormatException e) {
+            System.out.println("Invalid input. Please enter a valid number.");
+            }
+        }
+
+    return new Manager(types[choice - 1]);
+}
 
     public static Department chooseDepartment() {
         System.out.println("Please select the Department:");
         DepartmentType[] types = DepartmentType.values();
         for (int i = 0; i < types.length; i++) {
-            System.out.println((i + 1) + ". " + types[i]);
+        System.out.println((i + 1) + ". " + types[i]);
         }
-        int choice = scanner.nextInt();
-        scanner.nextLine();
+
+        int choice = -1;
+        boolean valid = false;
+
+        while (!valid) {
+            System.out.print("Enter your choice (1-" + types.length + "): ");
+            try {
+            choice = Integer.parseInt(scanner.nextLine());
+            if (choice >= 1 && choice <= types.length) {
+                valid = true;
+            } else {
+                System.out.println("Invalid choice. Please enter a number between 1 and " + types.length + ".");
+                }
+            } catch (NumberFormatException e) {
+            System.out.println("Invalid input. Please enter a valid number.");
+            }
+        }
+
         return new Department(types[choice - 1]);
     }
 }
