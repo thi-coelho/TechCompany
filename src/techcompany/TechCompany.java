@@ -118,7 +118,7 @@ public class TechCompany {
     }
     
     public static void displayApplicantList() {
-        System.out.println("\n--- Applicants List ---");
+        System.out.println("\n--- Updated Applicants List ---");
         for (int i = 0; i < applicantNames.size(); i++) {
         System.out.println((i + 1) + ". " + applicantNames.get(i));
     }
@@ -141,6 +141,7 @@ public class TechCompany {
         String formatted = name + " - " + manager.getType().name() + " - " + department.getName().name();
         applicantNames.add(formatted);
         System.out.println("Random Employee Generated: " + formatted);
+        displayApplicantList();
 
         try (FileWriter writer = new FileWriter("Applicants_Form.txt", true)) {
             writer.write(formatted + System.lineSeparator());
