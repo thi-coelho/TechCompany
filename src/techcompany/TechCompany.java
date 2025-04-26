@@ -107,6 +107,7 @@ public class TechCompany {
         String formatted = name + " - " + manager.getType().name() + " - " + department.getName().name();
         applicantNames.add(formatted);
         System.out.println("Employee added: " + formatted);
+        displayApplicantList();
 
         // Save in file
         try (FileWriter writer = new FileWriter("Applicants_Form.txt", true)) {
@@ -115,7 +116,13 @@ public class TechCompany {
             System.out.println("Error writing to Applicants_Form.txt: " + e.getMessage());
         }
     }
-
+    
+    public static void displayApplicantList() {
+        System.out.println("\n--- Applicants List ---");
+        for (int i = 0; i < applicantNames.size(); i++) {
+        System.out.println((i + 1) + ". " + applicantNames.get(i));
+    }
+}
     public static void generateRandomEmployee() {
         String[] randomNames = {"Alice Smith", "Benjamin Lee", "Charlotte Dubois", "Daniel Costa",
             "Eva Müller", "Felipe Sanchez", "Giulia Russo", "Hiroshi Tanaka", "James Anderson",
