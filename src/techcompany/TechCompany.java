@@ -26,7 +26,7 @@ public class TechCompany {
             showMenu();
         } else {
             System.out.println("Failed to read file.");
-        }
+            }
     }
 
     public static boolean readApplicantsFromFile(String filename) {
@@ -83,9 +83,9 @@ public class TechCompany {
             case EXIT:
                 System.out.println("Thank you for using our program. Goodbye!");
                 return;
+            }
         }
     }
-}
 
     public static void sortApplicants() {
         Collections.sort(applicantNames, String.CASE_INSENSITIVE_ORDER);
@@ -96,19 +96,31 @@ public class TechCompany {
     }
 
     public static void searchApplicant() {
+        String name;
+        while (true) {
         System.out.print("Enter the name to search: ");
-        String name = scanner.nextLine();
+        name = scanner.nextLine().trim();
+        System.out.println(" \n");
+
+        if (name.isEmpty()) {
+            System.out.println("Error: Name cannot be empty. Please try again.");
+        } else if (!name.matches("[a-zA-Z ]+")) {
+            System.out.println("Error: Name must contain only letters and spaces. Please try again.");
+        } else {
+            break; // Entrada válida
+            }
+        }
 
         boolean found = false;
         for (String record : applicantNames) {
-            if (record.toLowerCase().contains(name.toLowerCase())) {
-                System.out.println("Found: " + record);
-                found = true;
+        if (record.toLowerCase().contains(name.toLowerCase())) {
+            System.out.println("Found: " + record);
+            found = true;
             }
         }
 
         if (!found) {
-            System.out.println("Name not found in the applicants list.");
+        System.out.println("Name not found in the applicants list.");
         }
     }
 
@@ -117,6 +129,7 @@ public class TechCompany {
         while (true) {
             System.out.print("Please input the Employee Name: ");
             name = scanner.nextLine().trim(); 
+            System.out.println(" \n");
         
         if (name.isEmpty()) {
             System.out.println("Error: Name cannot be empty. Please try again.");
@@ -153,6 +166,7 @@ public class TechCompany {
         System.out.println((i + 1) + ". " + applicantNames.get(i));
         }
     }
+    
     public static void generateRandomEmployee() {
         String[] randomNames = {"Alice Smith", "Benjamin Lee", "Charlotte Dubois", "Daniel Costa",
             "Eva Müller", "Felipe Sanchez", "Giulia Russo", "Hiroshi Tanaka", "James Anderson",
@@ -192,6 +206,7 @@ public class TechCompany {
 
         while (!valid) {
             System.out.print("Enter your choice (1-" + types.length + "): ");
+            System.out.println(" \n");
             try {
             choice = Integer.parseInt(scanner.nextLine());
             if (choice >= 1 && choice <= types.length) {
@@ -209,6 +224,7 @@ public class TechCompany {
 
     public static Department chooseDepartment() {
         System.out.println("Please select the Department:");
+        System.out.println(" \n");
         DepartmentType[] types = DepartmentType.values();
         for (int i = 0; i < types.length; i++) {
         System.out.println((i + 1) + ". " + types[i]);
