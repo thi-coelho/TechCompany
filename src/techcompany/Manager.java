@@ -1,13 +1,14 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
+
 package techcompany;
 
 /**
  *
  * @author: 
  * Thiago Alves Coelho - 2024287
+ * 
+ * The Manager class represents an employee’s manager type in the TechCompany
+ * system.Instead of just using a plain String, it uses a ManagerType enum to ensure 
+ * consistency and prevent errors when assigning manager roles.
  */
 public class Manager {
       private ManagerType type;

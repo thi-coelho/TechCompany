@@ -1,13 +1,15 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
+
 package techcompany;
 
 /**
  *
  * @author: 
  * Thiago Alves Coelho - 2024287
+ * 
+ * The Department class represents the department to which an applicant 
+ * or employee belongs in the TechCompany system.
+ * Instead of storing departments as simple Strings (like "HR", "IT", "Sales"),
+ * I model them as typed objects using a DepartmentType enum.
  */
 public class Department {
      private DepartmentType name;

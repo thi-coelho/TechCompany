@@ -8,6 +8,9 @@ package techcompany;
  *
  * @author: 
  * Thiago Alves Coelho - 2024287
+ * 
+ * This class was created using Enum function in order to display
+ * to the user the options to be chosen in the system. 
  */
 public enum MenuOption {
     SORT,
