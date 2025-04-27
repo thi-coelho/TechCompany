@@ -113,31 +113,46 @@ public class TechCompany {
     }
 
     public static void addNewEmployee() {
-        System.out.print("Please input the Employee Name: ");
-        String name = scanner.nextLine();
+        String name;
+        while (true) {
+            System.out.print("Please input the Employee Name: ");
+            name = scanner.nextLine().trim(); 
+        
+        if (name.isEmpty()) {
+            System.out.println("Error: Name cannot be empty. Please try again.");
+            continue;
+        }
+
+        if (!name.matches("[a-zA-Z ]+")) {
+            System.out.println("Error: Name must contain only letters and spaces. Please try again.");
+            continue;
+        }
+
+        break;
+        }
 
         Manager manager = chooseManager();
         Department department = chooseDepartment();
 
         String formatted = name + " - " + manager.getType().name() + " - " + department.getName().name();
         applicantNames.add(formatted);
-        System.out.println("Employee added: " + formatted);
+        System.out.println("Employee: " + name + " was added to the list.");
+        System.out.println(formatted);
         displayApplicantList();
 
-        // Save in file
         try (FileWriter writer = new FileWriter("Applicants_Form.txt", true)) {
-            writer.write(formatted + System.lineSeparator());
+        writer.write(formatted + System.lineSeparator());
         } catch (IOException e) {
-            System.out.println("Error writing to Applicants_Form.txt: " + e.getMessage());
+        System.out.println("Error writing to Applicants_Form.txt: " + e.getMessage());
         }
     }
-    
+ 
     public static void displayApplicantList() {
         System.out.println("\n--- Updated Applicants List ---");
         for (int i = 0; i < applicantNames.size(); i++) {
         System.out.println((i + 1) + ". " + applicantNames.get(i));
+        }
     }
-}
     public static void generateRandomEmployee() {
         String[] randomNames = {"Alice Smith", "Benjamin Lee", "Charlotte Dubois", "Daniel Costa",
             "Eva Müller", "Felipe Sanchez", "Giulia Russo", "Hiroshi Tanaka", "James Anderson",
@@ -189,8 +204,8 @@ public class TechCompany {
             }
         }
 
-    return new Manager(types[choice - 1]);
-}
+        return new Manager(types[choice - 1]);
+    }
 
     public static Department chooseDepartment() {
         System.out.println("Please select the Department:");
