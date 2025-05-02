@@ -13,19 +13,25 @@ public class TechCompany {
     static List<String> applicantNames = new ArrayList<>(); // List to store all applicant names and records
     static Scanner scanner = new Scanner(System.in); // Scanner to read user input
 
-    public static void main(String[] args) {
+     public static void main(String[] args){
         // Display welcome message and ask for the filename
-        System.out.print("*** HELLO USER. WELCOME TO THE TECHCOMPANY ***"
+        System.out.print("*** HELLO USER. WELCOME TO THE TECHCOMPANY ***" 
                 + "\n-- Please, first enter the filename to read: -- ");
-        String filename = scanner.nextLine();
+        String filename;
 
-          // Try to read applicants from the given file
-        if (readApplicantsFromFile(filename)) {
-            System.out.println("File read successfully.\n");
-            showMenu(); // If successful, show the main menu
-        } else {
-            System.out.println("Failed to read file.");
+        do {
+            filename = scanner.nextLine(); // Gets the name of the file
+            
+            // Try to read applicants from the given file
+            if (readApplicantsFromFile(filename)) {
+                System.out.println("File read successfully.\n");
+                showMenu(); // If successful, show the main menu
+            } else {
+                System.out.println("Failed to read file. Please enter a valid filename: ");
             }
+            
+        } while (!filename.equals("Applicants_Form.txt"));
+        scanner.close(); // Close the scanner.
     }
 
      // Method to read applicant names from a file
