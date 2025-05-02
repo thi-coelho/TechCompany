@@ -179,10 +179,10 @@ public class TechCompany {
     // Method to generate and add a random employee
     public static void generateRandomEmployee() {
         // Predefined names for random generation
-        String[] randomNames = {"Alice Smith", "Benjamin Lee", "Charlotte Dubois", "Daniel Costa",
-            "Eva Müller", "Felipe Sanchez", "Giulia Russo", "Hiroshi Tanaka", "James Anderson",
-            "Emily Johnson", "Michael Smith", "Sophia Brown", "William Davis", "Olivia Wilson",
-            "Benjamin Martinez", "Emma Taylor", "Daniel White", "Abigail Thomas"};
+        String[] randomNames = {"Aline Smith", "Benjamin Lee", "Carlos Dubois", "Diego Costa",
+            "Eva Muller", "Felipe Sanchez", "Giulia Russo", "Hiroshi Tanaka", "James Anderson",
+            "Emily Johnson", "Micael Smith", "Sophia Brown", "William Davis", "Olivia Wilson",
+            "Benjamin Martinez", "Emma Taylor", "Samuel White", "Abigail Thomas"};
 
         Random rand = new Random();
         String name = randomNames[rand.nextInt(randomNames.length)];
